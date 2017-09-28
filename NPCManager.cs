@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ASCIIGameEngine
 {
@@ -9,7 +9,7 @@ namespace ASCIIGameEngine
 		public NPCManager ()
 		{	
 			for (int i=0; i<MAX_NPC; i++)
-				npcs[i] = new NPC ();
+				npcs[i] = new NPC (i);
 		}
 		public void Update(){
 			foreach (NPC n in npcs)
@@ -17,4 +17,5 @@ namespace ASCIIGameEngine
 		}	
 	}
 }
+
 

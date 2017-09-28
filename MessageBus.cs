@@ -69,42 +69,39 @@ namespace ASCIIGameEngine
                 // using reflection is a bit slow, but who cares
                 OnGameEvent((GameEvent)evt);
 
-                if (evt.GetType() == typeof(InputEvent))
+                if (OnInputEvent != null && evt.GetType() == typeof(InputEvent))
                     OnInputEvent((InputEvent)evt);
-                if (evt.GetType() == typeof(PlayerHealthEvent))
+                if (OnPlayerHealthEvent != null && evt.GetType() == typeof(PlayerHealthEvent))
                     OnPlayerHealthEvent((PlayerHealthEvent)evt);
-                if (evt.GetType() == typeof(PlayerScoreEvent))
+                if (OnPlayerScoreEvent != null && evt.GetType() == typeof(PlayerScoreEvent))
                     OnPlayerScoreEvent((PlayerScoreEvent)evt);
 
 
                 // Player and NPC related stuff
-                if (evt.GetType() == typeof(InputEvent))
-                    OnInputEvent((InputEvent)evt);
-
-                if (evt.GetType() == typeof(PlayerAttemptedMove))
+                if (OnPlayerAttemptedMoveEvent != null && evt.GetType() == typeof(PlayerAttemptedMove))
                     OnPlayerAttemptedMoveEvent((PlayerAttemptedMove)evt);
 
-                if (evt.GetType() == typeof(PlayerMoveResponse))
+                if (OnPlayerMoveResponse != null && evt.GetType() == typeof(PlayerMoveResponse))
                     OnPlayerMoveResponse((PlayerMoveResponse)evt);
 
-                if (evt.GetType() == typeof(PlayerAttemptedMove))
+                if (OnPlayerAttemptedMoveEvent != null && evt.GetType() == typeof(PlayerAttemptedMove))
                     OnPlayerAttemptedMoveEvent((PlayerAttemptedMove)evt);
 
-                if (evt.GetType() == typeof(NPCAttemptedMovedEvent))
+                if (OnNPCAttemptedMovedEvent != null && evt.GetType() == typeof(NPCAttemptedMovedEvent))
                     OnNPCAttemptedMovedEvent((NPCAttemptedMovedEvent)evt);
 
-                if (evt.GetType() == typeof(NPCMoveResponse))
+                if (OnNPCMoveResponse != null && (evt.GetType() == typeof(NPCMoveResponse))
                     OnNPCMoveResponse((NPCMoveResponse)evt);
 
 
 
-                if (evt.GetType() == typeof(AttackEvent))
+                if (OnAttackEvent != null && evt.GetType() == typeof(AttackEvent))
                     OnAttackEvent((AttackEvent)evt);
-                if (evt.GetType() == typeof(CollisionEvent))
+                if (OnCollisionEvent != null && evt.GetType() == typeof(CollisionEvent))
                     OnCollisionEvent((CollisionEvent)evt);
-                if (evt.GetType() == typeof(SceneChangeEvent))
+                if (OnSceneChangeEvent != null && evt.GetType() == typeof(SceneChangeEvent))
                     OnSceneChangeEvent((SceneChangeEvent)evt);
-                if (evt.GetType() == typeof(UIToRenderEvent))
+                if (OnUIToRenderEvent != null && evt.GetType() == typeof(UIToRenderEvent))
                     OnUIToRenderEvent((UIToRenderEvent)evt);
                 // this handles movement of npcs. there is 10 of them and they just move left
                 // if (evt.GetType () == typeof(NPCMovedEvent))

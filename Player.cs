@@ -1,9 +1,11 @@
+/* Daniel Crews
+ * Daniel Kharlamov
+ */
 using System.Collections;
 using System.Collections.Generic;
 using System;
-namespace ASCIIGameEngine
-{
- public class Player : GameObject {
+namespace ASCIIGameEngine {
+    public class Player : GameObject {
         private int health;
         private int xp;
         private bool dirty_flag;
@@ -16,6 +18,7 @@ namespace ASCIIGameEngine
 
             // subscribe to types of messages you are interested in
             MessageBus.getInstance().OnInputEvent += HandleOnInputEvent;
+            MessageBus.getInstance().OnAttackEvent += HandleOnAttackEvent;
         }
 
         public void HandleOnInputEvent(InputEvent e) {
@@ -48,11 +51,17 @@ namespace ASCIIGameEngine
 
         }
 
+        public void HandleOnAttackEvent(AttackEvent e) {
+
+        }
+
 
         public void HandleOnPlayerMoveResponse(PlayerMoveResponse e) {
 
             this.x = e.position_x;
             this.y = e.position_y;
+
+            Console.WriteLine("" + this.x + " " + this.y);
 
         }
 
@@ -61,6 +70,8 @@ namespace ASCIIGameEngine
 
             //Redraw player i guess
 
+
+            //Console.WriteLine("Add event render event");
             //MessageBus.getInstance().AddEvent(RENDER EVENT GOES HERE!!!);
 
         }

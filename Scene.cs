@@ -3,9 +3,7 @@ using System;
 //written by Brandon Shimizu, Jason Ferrer, Lorenzo Hernandez
 
 namespace ASCIIGameEngine {
-    class Scene
-    {
-        public class Scene {
+    public class Scene {
             
     		bool dirty_flag = false;
     		const int height = 80;
@@ -20,23 +18,25 @@ namespace ASCIIGameEngine {
     		
     		public void HandlePlayerRequestMoveEvent(AttemptMovementEvent e){
     		    // detect if player is requesting movement
-    		    first_x = e.current_x;
-    		    first_y = e.current_y;
-    		    Console.WriteLine("Player is trying to move.");
+    		    //check player id
+    		    if(e.id == playerId){//whatever the player id is
+        		    first_x = e.current_x;
+        		    first_y = e.current_y;
+        		    Console.WriteLine("Player is trying to move.");
+    		    }
     		}
     		
-    		public void HandlePlayerMovedEvent(PlayerMovedEvent e){
+    		public void HandlePlayerMovedEvent(MovementEvent e){
 			    // move scene according to player
     			Console.WriteLine("Player moved. Re-Drawing Scene");
 			    if(first_x == e.destination_x && first_y == e.destination_y){
 			        return;
 			    }
-			    //say what say what say what say what say what
 			    if(first_x - e.destination_x > 0){
 			        Console.WriteLine("Scene moved right with player.");
 			        for(int x = 0; x< width; x++){
 			            for(int y = 0; y < height; y++){
-			                
+			                //ayyyy must be the money
 			            }
 			        }
 			    }else{
@@ -50,4 +50,3 @@ namespace ASCIIGameEngine {
             }
         }
     }
-}

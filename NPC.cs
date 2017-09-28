@@ -1,31 +1,54 @@
-﻿using System.Collections;
+/* Daniel Crews
+ * Daniel Kharlamov
+ */
+using System.Collections;
 using System.Collections.Generic;
 namespace ASCIIGameEngine
 {
 	public class NPC : GameObject {
 		int position_x = 80;
 		int position_y = 0;
-		
-		public NPC() {
-			// subscribe to types of messages you are interested in
-			MessageBus.getInstance().OnGameEvent += HandleOnGameEvent;
-		}
+        int npc_id = 0;
 
-		public void HandleOnGameEvent(GameEvent e){
+        AI strategies = new AI();
+
+		public NPC(int id) {
+            // subscribe to types of messages you are interested in
+            MessageBus.getInstance().OnAttackEvent += HandleAttackEvent;
+            MessageBus.getInstance().OnNPCMoveResponse += HandleMoveEvent;
+            strategies.attackStrat = new AggressiveStrategy();
+            strategies.navStrat = new FlexibleMovement();
+
+            npc_id = id;
+        }
+
+		public void HandleAttackEvent(GameEvent e){
+            
 			// logic that handles messages coming from the bus.
 		}
-		// Update is called once per frame
 
-		private void Move(){
-			// some smart AI will calculate where I should move
-			position_x--;
-		}
+        public void HandleMoveEvent(NPCMoveResponse e) {
+            // logic that handles messages coming from the bus.
+        }
 
-		public void Update () {
+
+        private void Move(){
+            // some smart AI will calculate where I should move
+            MessageBus.getInstance().AddEvent(strategies.navStrat.findPath(position_x, position_x, npc_id));
+        }
+
+        private void Attack() {
+
+            strategies.attackStrat.attack();
+
+        }
+
+        public void Update () {
 
 			Move();
-			// send message that npc moved
-			MessageBus.getInstance().AddEvent (new NPCMovedEvent(position_x,position_y));
+
+            Attack();
+
 		}
 	}
 }
