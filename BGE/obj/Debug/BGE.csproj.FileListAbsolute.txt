@@ -1,0 +1,5 @@
+c:\users\delta\documents\visual studio 2017\Projects\BGE\BGE\obj\Debug\BGE.csprojResolveAssemblyReference.cache
+c:\users\delta\documents\visual studio 2017\Projects\BGE\BGE\bin\Debug\BGE.exe
+c:\users\delta\documents\visual studio 2017\Projects\BGE\BGE\bin\Debug\BGE.pdb
+c:\users\delta\documents\visual studio 2017\Projects\BGE\BGE\obj\Debug\BGE.exe
+c:\users\delta\documents\visual studio 2017\Projects\BGE\BGE\obj\Debug\BGE.pdb
