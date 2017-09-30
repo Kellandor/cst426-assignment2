@@ -45,15 +45,15 @@ namespace ASCIIGameEngine
     public class PlayerAttemptMovementEvent : AttemptMovementEvent
     {
         public PlayerAttemptMovementEvent(int curr_x, int curr_y, int new_x, int new_y)
-            :base(0,curr_x,curr_y,new_x,new_y)
-        {}
+            : base(0, curr_x, curr_y, new_x, new_y)
+        { }
     }
 
     public class NPCAttemptMovementEvent : AttemptMovementEvent
     {
         public NPCAttemptMovementEvent(int newid, int curr_x, int curr_y, int new_x, int new_y)
             : base(newid, curr_x, curr_y, new_x, new_y)
-        {}
+        { }
     }
 
     public class MovementEvent : GameEvent
@@ -72,7 +72,7 @@ namespace ASCIIGameEngine
     public class PlayerMovementEvent : MovementEvent
     {
         public PlayerMovementEvent(int x, int y)
-            :base(0,x,y)
+            : base(0, x, y)
         { }
     }
 
@@ -108,14 +108,15 @@ namespace ASCIIGameEngine
 
     public class SceneChangeEvent : GameEvent
     {
-        public GameObject[,] scene_objects { get; set; }
-        public SceneChangeEvent(GameObject[,] objects)
+        public List<GameObject> scene_objects { get; set; }
+        public SceneChangeEvent(List<GameObject> objects)
         {
             scene_objects = objects;
         }
     }
 
-    public class UIToRenderEvent : GameEvent {
+    public class UIToRenderEvent : GameEvent
+    {
         public string health { get; set; }
         public int score { get; set; }
         public UIToRenderEvent(string hp, int score)

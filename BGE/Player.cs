@@ -4,31 +4,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
-namespace ASCIIGameEngine {
-    public class Player : GameObject {
+namespace ASCIIGameEngine
+{
+    public class Player : GameObject
+    {
         private int health;
         private int xp;
         private bool dirty_flag;
 
-        public Player() {
+        public Player()
+        {
 
             health = 100;
             xp = 0;
             dirty_flag = false;
-
+            x = 1;
+            y = 1;
+            MessageBus.getInstance().AddEvent(new PlayerAttemptMovementEvent(0, 0, x, y));
             // subscribe to types of messages you are interested in
             MessageBus.getInstance().OnInputEvent += HandleOnInputEvent;
             MessageBus.getInstance().OnAttackEvent += HandleOnAttackEvent;
+            MessageBus.getInstance().OnPlayerMoveResponse += HandleOnPlayerMoveResponse;
         }
 
-        public void HandleOnInputEvent(InputEvent e) {
+        public void HandleOnInputEvent(InputEvent e)
+        {
             // logic that handles input will be implemented later"
             dirty_flag = true;
 
-            PlayerAttemptMovementEvent potentialMove = new PlayerAttemptMovementEvent(x,y,x,y);
+            PlayerAttemptMovementEvent potentialMove = new PlayerAttemptMovementEvent(x, y, x, y);
 
             //TODO Bound movement 
-            switch (e.key) {
+            switch (e.key)
+            {
                 case 'w':
                     Console.WriteLine("Player Up");
                     potentialMove.destination_y++;
@@ -51,23 +59,24 @@ namespace ASCIIGameEngine {
 
         }
 
-        public void HandleOnAttackEvent(AttackEvent e) {
-            
+        public void HandleOnAttackEvent(AttackEvent e)
+        {
+
         }
 
 
-        public void HandleOnPlayerMoveResponse(PlayerMovementEvent e) {
+        public void HandleOnPlayerMoveResponse(PlayerMovementEvent e)
+        {
 
             this.x = e.destination_x;
             this.y = e.destination_y;
-
             Console.WriteLine("" + this.x + " " + this.y);
 
         }
 
-
-        public void Update() {
-            
+        public void Update()
+        {
+            Console.WriteLine("Player x:" + this.x.ToString() + " y:" + this.y.ToString());
 
         }
 
