@@ -8,3 +8,8 @@ C:\Users\Delta\Desktop\BGE\cst426-assignment2\BGE\bin\Debug\BGE.pdb
 C:\Users\Delta\Desktop\BGE\cst426-assignment2\BGE\obj\Debug\BGE.csprojResolveAssemblyReference.cache
 C:\Users\Delta\Desktop\BGE\cst426-assignment2\BGE\obj\Debug\BGE.exe
 C:\Users\Delta\Desktop\BGE\cst426-assignment2\BGE\obj\Debug\BGE.pdb
+C:\Users\Garred\Desktop\CST 426 Assignment 2\cst426-assignment2\BGE\obj\Debug\BGE.exe
+C:\Users\Garred\Desktop\CST 426 Assignment 2\cst426-assignment2\BGE\obj\Debug\BGE.pdb
+C:\Users\Garred\Desktop\CST 426 Assignment 2\cst426-assignment2\BGE\bin\Debug\BGE.exe
+C:\Users\Garred\Desktop\CST 426 Assignment 2\cst426-assignment2\BGE\bin\Debug\BGE.pdb
+C:\Users\Garred\Desktop\CST 426 Assignment 2\cst426-assignment2\BGE\obj\Debug\BGE.csprojResolveAssemblyReference.cache
