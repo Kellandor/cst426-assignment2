@@ -8,7 +8,6 @@ namespace ASCIIGameEngine
     public class Scene
     {
 
-        bool dirty_flag = false;
         const int height = 80;
         const int width = 80;
         List<GameObject> scene_objects = new List<GameObject>();
